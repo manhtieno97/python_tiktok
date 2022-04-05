@@ -22,27 +22,8 @@ def check_exists_by_xpath(driver, xpath):
     return True
 
 
-def upload(video_path):
-    print('=====================================================================================================')
-    print('Heyy, you have to login manully on tiktok, so the bot will wait you 1 minute for loging in manually!')
-    print('=====================================================================================================')
-    time.sleep(8)
-    print('Running bot now, get ready and login manually...')
-    time.sleep(4)
-
-    options = webdriver.ChromeOptions()
-    bot = webdriver.Chrome(options=options,  executable_path=CM().install())
-    bot.set_window_size(1680, 900)
-
-    bot.get('https://www.tiktok.com/login')
-    ActionChains(bot).key_down(Keys.CONTROL).send_keys(
-        '-').key_up(Keys.CONTROL).perform()
-    ActionChains(bot).key_down(Keys.CONTROL).send_keys(
-        '-').key_up(Keys.CONTROL).perform()
-    print('Waiting 50s for manual login...')
-    time.sleep(50)
-    bot.get('https://www.tiktok.com/upload/?lang=en')
-    time.sleep(3)
+def upload(video_path, bot):
+    
     while True:
         file_uploader = bot.find_element_by_xpath(
             '//*[@id="main"]/div[2]/div/div[2]/div[2]/div/div/input')
