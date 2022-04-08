@@ -26,7 +26,7 @@ def upload(video_path, bot):
     
     while True:
         file_uploader = bot.find_element_by_xpath(
-            '//*[@id="main"]/div[2]/div/div[2]/div[2]/div/div/input')
+            '//*[@id="root"]/div[2]/div/div[2]/div[2]/div/div/input')
 
         file_uploader.send_keys(video_path)
 
