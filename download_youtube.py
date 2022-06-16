@@ -4,5 +4,5 @@ def download(link, path, name):
         yt = pytube.YouTube(link)
     except: 
          print("Connection Error") #to handle exception 
-    stream = yt.streams.first()
+    stream = yt.streams.get_highest_resolution()
     stream.download(output_path = path, filename=name)
